@@ -2,11 +2,9 @@ package com.leeyaonan.demo.java8.lambda;
 
 import com.leeyaonan.demo.model.Employee;
 
-import java.util.Arrays;
+import java.util.*;
+
 import org.junit.Test;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @Author leeyaonan
@@ -24,14 +22,17 @@ public class LambdaTest {
 
     @Test
     public void testLambda() {
-        Collections.sort(emps, (e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
-//        emps.sort((e1, e2) -> {
-//            if (e1.getAge().equals(e2.getAge())) {
-//                return Double.compare(e1.getSalary(), e2.getSalary());
-//            } else {
-//                return Integer.compare(e1.getAge(), e2.getAge());
-//            }
-//        });
+//        Collections.sort(emps, (e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
+
+//        Collections.sort(emps, Comparator.comparingDouble(Employee::getSalary));
+
+        emps.sort((e1, e2) -> {
+            if (e1.getAge().equals(e2.getAge())) {
+                return Double.compare(e1.getSalary(), e2.getSalary());
+            } else {
+                return Integer.compare(e1.getAge(), e2.getAge());
+            }
+        });
         System.out.println(emps);
     }
 }
