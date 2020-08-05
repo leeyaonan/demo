@@ -24,13 +24,14 @@ public class LambdaTest {
 
     @Test
     public void testLambda() {
-        emps.sort((e1, e2) -> {
-            if (e1.getAge().equals(e2.getAge())) {
-                return Double.compare(e1.getSalary(), e2.getSalary());
-            } else {
-                return Integer.compare(e1.getAge(), e2.getAge());
-            }
-        });
+        Collections.sort(emps, (e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
+//        emps.sort((e1, e2) -> {
+//            if (e1.getAge().equals(e2.getAge())) {
+//                return Double.compare(e1.getSalary(), e2.getSalary());
+//            } else {
+//                return Integer.compare(e1.getAge(), e2.getAge());
+//            }
+//        });
         System.out.println(emps);
     }
 }
